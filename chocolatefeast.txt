@@ -1,0 +1,21 @@
+ public static int chocolateFeast(int n, int c, int m) {
+    int totalcost = n;
+    int costof1 = c;
+    int wrapper = 0;
+    int totalchocolate = totalcost / costof1;
+    wrapper = totalchocolate;
+    while(true)
+    {
+        if(wrapper >= m)
+        {
+            int chocolate = wrapper / m;
+            wrapper = (wrapper % m) + chocolate;
+            totalchocolate = totalchocolate + chocolate;
+        }
+        else{
+            break;
+        }
+    }
+    return totalchocolate;
+
+    }

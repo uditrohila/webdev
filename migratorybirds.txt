@@ -1,0 +1,24 @@
+
+    public static int migratoryBirds(List<Integer> arr) {
+    // Write your code here
+    int[] freqarr = new int[6];
+    for(int i =0;i<arr.size(); i++)
+    {
+        freqarr[arr.get(i)]++;
+    }
+        
+    int max = 0, ans = 0;
+    for(int i =1; i <freqarr.length;i++)
+    {
+        if(freqarr[i] > max)
+        {
+            max = freqarr[i];
+            ans = i;
+        }
+    }
+        
+    return ans;
+
+    }
+
+}

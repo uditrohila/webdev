@@ -1,0 +1,25 @@
+  public static String pangrams(String s) {
+    // Write your code here
+    String s1 = s.toLowerCase();
+    boolean found = true;
+    for(int i=97; i<=122; i++)
+    {
+        char ch = (char)i;
+        if(s1.indexOf(ch) == -1)
+        {
+            found = false;
+            break;
+        }
+    }
+        if(found)
+        {
+            return "pangram";
+        }
+        else
+        {
+            return "not pangram";
+        }
+
+    }
+
+}

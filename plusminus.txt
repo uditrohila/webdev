@@ -1,0 +1,32 @@
+ public static void plusMinus(List<Integer> arr) {
+     double total = arr.size();
+     int countneg = 0, countpos = 0, count0 = 0;
+     // traverse the list
+     for(int i =0; i< arr.size(); i++)
+     {
+         // count negno
+         if(arr.get(i) < 0)
+         {
+             countneg++;
+         }
+         // count pos no
+         else if(arr.get(i) > 0)
+         {
+             countpos++;
+         }
+         // count zero s
+         else{
+             count0++;
+         }
+     }
+        double ratiopos = countpos / total;
+        double rationeg = countneg / total;
+        double ratio0 = count0 / total;
+        
+        System.out.println(String.format("%.6f", ratiopos));
+        System.out.println(String.format("%.6f", rationeg));
+        System.out.println(String.format("%.6f", ratio0));
+
+    }
+
+}

@@ -1,0 +1,17 @@
+  public static int maximizingXor(int l, int r) {
+    // Write your code here
+    int maxXor = 0;
+    for(int i =l; i < r; i++)
+    {
+        int temp;
+        temp = i ^ (i + 1);
+        if(temp > maxXor)
+        {
+            maxXor = temp;
+        }  
+    }
+    return maxXor;
+
+    }
+
+}

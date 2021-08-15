@@ -1,0 +1,13 @@
+    public static int theLoveLetterMystery(String s) {
+    // Write your code here
+    int l = s.length();
+    int minoperation = 0;
+    for(int i =0; i < l / 2; i++)
+    {
+        minoperation = minoperation + Math.abs(s.charAt(i) - s.charAt(l - i-1));
+    }
+        return minoperation;
+
+    }
+
+}

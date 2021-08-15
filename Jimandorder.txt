@@ -1,0 +1,48 @@
+  public static List<Integer> jimOrders(List<List<Integer>> orders) {
+    // Write your code here
+    List<Integer> al = new ArrayList<>();
+    int custno = 1;
+    
+    for(List<Integer> ol : orders)
+    {
+        int time = 0;
+        
+        for(Integer il : ol)
+        {
+            time = time + il;
+        }
+        
+        al.add(time);
+        al.add(custno++);
+        
+    }
+        
+    // sorting logic
+    for(int i = 0; i < al.size(); i+=2)
+    {
+        for(int j = al.size() - 2; j >= i; j-=2)
+        {
+            int temp;
+            if(al.get(j) < al.get(i))
+            {   // swapping time
+                temp = al.get(j);
+                al.set(j,al.get(i));
+                al.set(i,temp);
+                // swapping custno
+                temp = al.get(j + 1);
+                al.set(j+ 1,al.get(i + 1));
+                al.set(i + 1, temp);
+            }
+        }
+    }
+    // created new arraylist to store the custno after sorting  
+    List<Integer> al2 = new ArrayList<>();
+    for(int i = 1; i < al.size(); i+=2)  // fetch the custno
+    {
+        al2.add(al.get(i));
+    }
+    return al2;
+
+    }
+
+}

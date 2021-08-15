@@ -1,0 +1,27 @@
+    public static int libraryFine(int d1, int m1, int y1, int d2, int m2, int y2) {
+    // check for year
+        if(y1 > y2)
+        {
+            return 10000;
+        }
+        // check for year and month
+        else if(y1==y2 && m1>m2)
+        {
+            return (m1-m2)*500;
+        }
+        //check for year and month and day
+        else if(y1==y2 && m1==m2 && d1 > d2)
+        {
+            return (d1-d2) * 15;
+        }
+        
+        // agar all the above condition fail means we have return at time 
+        // so their is no fine
+        else
+        {
+            return 0;
+        }
+
+    }
+
+}

@@ -1,0 +1,27 @@
+   public static List<Integer> serviceLane(int t,List<Integer> width, List<List<Integer>> cases) {
+    // Write your code here
+    int answer;
+    ArrayList<Integer> ans = new ArrayList<>();
+    for(int i = 0; i< t; i++)
+    {
+       answer = Minimum(width,cases.get(i).get(0), cases.get(i).get(1));
+        ans.add(answer);
+        
+    }
+    return ans;
+
+    }
+    
+    public static int Minimum(List<Integer> width, int i, int j)
+    {   int min = Integer.MAX_VALUE;
+        for(int k =i; k<=j; k++)
+        {
+            if(width.get(k) < min)
+            {
+                min = width.get(k);
+            }
+        }
+        return min;
+    }
+
+}

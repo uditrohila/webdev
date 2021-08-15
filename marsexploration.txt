@@ -1,0 +1,23 @@
+  public static int marsExploration(String s) {
+    int l = s.length();
+    String s1 = "SOS";
+    int n = l / 3;   // we have used mod to compute from how many sos is their for comparsion
+    String newString = "";
+    for(int i =0; i < n; i++)
+    {
+        newString = newString + s1;
+    }
+    int count = 0;
+    // string compare from given string and make string from mod
+    for(int i =0; i < l; i++)
+    {
+        if(newString.charAt(i) != s.charAt(i))
+        {
+            count++;
+        }
+    }
+    return count;
+
+    }
+
+}

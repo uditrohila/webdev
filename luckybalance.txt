@@ -1,0 +1,44 @@
+  public static void main(String[] args)
+    {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int k = scn.nextInt();
+        int maxLuck = 0;
+        
+        ArrayList<Integer> importantContests = new ArrayList<>();
+        
+        // create a arraylist of important contest
+        for(int i = 0; i < n; i++)
+        {
+            int luck = scn.nextInt();
+            int important = scn.nextInt();
+            
+            if(important != 1)
+            {
+                maxLuck = maxLuck + luck;
+            }
+            else
+            {
+                importantContests.add(luck);
+            }
+        }
+        
+        // sort the important contest in descending order
+        Collections.sort(importantContests, Collections.reverseOrder());
+        
+        // loose the k largest contests and win the rest
+        for(int i =0; i < importantContests.size(); i++)
+        {
+            if(i < k)
+            {
+                maxLuck += importantContests.get(i);
+            }
+            else
+            {
+                maxLuck -= importantContests.get(i);
+            }
+        }
+        
+        System.out.println(maxLuck);
+    }
+}

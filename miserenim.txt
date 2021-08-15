@@ -1,0 +1,48 @@
+ public static String misereNim(List<Integer> stones) {
+    // In singlepile if more than one stone exist then first player will win
+    // always win by leaving the last stone for second player to pick up
+    if(stones.size() == 1)
+    {
+        if(stones.get(0) > 1)
+        {
+            return "First";
+        }
+    }
+        
+    int totalStones = stones.get(0);
+    int xorvalue = stones.get(0);
+        
+    for(int i =1; i < stones.size(); i++)
+    {
+        totalStones += stones.get(i);
+        xorvalue ^= stones.get(i);
+    }
+       
+    // if sum of all stones equals the total piles all piles have single (1) stone
+    //  for even no of piles, the first player will always win
+    if(totalStones == stones.size())
+    {
+        if(totalStones % 2 == 0)
+        {
+            return "First";
+        }
+        else
+        {
+            return "Second";
+        }
+    }
+   
+    // for all the other cases the xor value determine winner if xorvalue = 0 then second player will always win
+    // as all the stones are paired
+    
+    if(xorvalue == 0)
+    {
+        return "Second";
+    }
+    else
+    {
+        return "First";
+    }
+    }
+
+}

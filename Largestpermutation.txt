@@ -1,0 +1,101 @@
+public static List<Integer> largestPermutation(int k, List<Integer> arr) {
+    // Write your code here
+    int n = arr.size();
+    HashMap<Integer,Integer> map = new HashMap<>();
+    
+    for(int i =0; i < arr.size(); i++)
+    {
+        map.put(arr.get(i),i);
+    }
+    
+    for(int i =0; i < n && k >0; i++)
+    {
+        int value = arr.get(i);
+        
+        if(value == n-i)
+        {
+            continue;
+        }
+        
+        int maxelemindex = map.get(n-i);
+        
+        arr.set(i,n-i);
+        arr.set(maxelemindex,value);
+        map.put(value,maxelemindex);
+        map.put(n-i,i);
+        k--;
+    }
+    
+    return arr;
+    
+
+    }
+
+}
+
+_______________________________________________________________________________________________________________
+_______________________________________________________________________________________________________________
+or or or 
+
+ public  static void Kswap(int arr[], int n, int k)
+    {
+        // create a aux array to store position of element
+      //  int pos[n+1];
+        int[] pos = new int[n+1];
+        
+        for(int i =0; i < n; i++)
+        {
+            pos[arr[i]] = i;
+        }
+        
+        for(int i =0; i <n && k > 0; i++)
+        {
+            // if element is already i th largest
+            // then no need to swap
+            if(arr[i] == n - i)
+            {
+                continue;
+            }
+            
+            // Find pos of ith largest value, n-i
+            int index = pos[n-i];
+            
+            // swap the elements position
+            pos[arr[i]] = pos[n-i];
+            pos[n-i] = i;
+            
+            // swap the ith largest value with the
+            // current value at ith place
+            int temp = arr[index];
+            arr[index] = arr[i];
+            arr[i] = temp;
+            
+            
+            //decrement number of swap
+            k--;
+        }
+    }
+    
+    public static void main(String[] args)
+    {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int k = scn.nextInt();
+        int[] arr = new int[n]; // intialise array
+        
+        // enter element in array
+        for(int i =0; i <n; i++)
+        {
+            arr[i] = scn.nextInt();
+        }
+        // call the function
+        Kswap(arr,n,k);
+        // print the array in the output
+        for(int i : arr)
+        {
+            System.out.print(i + " ");
+        }
+        
+        
+    }
+}

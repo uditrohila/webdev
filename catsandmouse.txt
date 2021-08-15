@@ -1,0 +1,17 @@
+  // Complete the catAndMouse function below.
+    static String catAndMouse(int x, int y, int z) {
+        if((Math.abs(x - z)) < (Math.abs(y - z)))
+        {
+           return "Cat A";   
+        }
+        else if((Math.abs(y-z)) < (Math.abs(x - z)))
+        {
+            return "Cat B";
+        }
+        else{
+            // x-z == y-z --> if both cats react at mouse at same time so mouse escape
+            return "Mouse C";
+        }
+
+
+    }

@@ -1,0 +1,83 @@
+ public static List<Integer> acmTeam(List<String> topic) {
+    // Write your code here
+    ArrayList<Integer> al = new ArrayList<>();
+    int count = 1, max = Integer.MIN_VALUE;
+        for(int i =0; i < topic.size() - 1; i++)
+        {
+            for(int j = i + 1; j < topic.size(); j++)
+            {
+                int temp = 0;
+                for(int k =0; k < topic.get(i).length(); k++)
+                {
+                    if(topic.get(i).charAt(k) == '1' || topic.get(j).charAt(k) == '1')
+                    {
+                        temp++;
+                    }
+                    
+                    if(temp>max)
+                    {   
+                        max = temp;
+                        count = 1;
+                    }
+                    
+                    else if(temp == max)
+                    {
+                        count++;
+                    }
+                }
+            }
+        }
+        
+        al.add(max);
+        al.add(count);
+        return al;
+
+    }
+
+}
+
+_____________________________________________________________________________________________________________
+________________________________________________________________________________________________________________
+
+public static List<Integer> acmTeam(List<String> topic) {
+    // Write your code here
+    int n = topic.size();
+    BigInteger[] bi = new BigInteger[n];
+    
+    for(int i =0; i < n; i++)
+    {
+        bi[i] = new BigInteger(topic.get(i),2);
+    }
+    
+    int maxTopic  = 0;
+    int TeamCount = 1;
+    
+    
+    for(int i =0; i < n; i++)
+    {
+        for(int j = i + 1; j < n; j++)
+        {
+            BigInteger AUB = bi[i].or(bi[j]);
+            int bitCount = AUB.bitCount();
+            
+            if(bitCount > maxTopic)
+            {
+                maxTopic = bitCount;
+                TeamCount = 1;
+            }
+            
+            else if(bitCount == maxTopic)
+            {
+                TeamCount++;
+            }
+        }
+    }
+    
+    ArrayList<Integer> al = new ArrayList<>();
+    al.add(maxTopic);
+    al.add(TeamCount);
+    return al;
+
+    }
+
+}

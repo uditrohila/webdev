@@ -1,0 +1,40 @@
+ public static String appendAndDelete(String s, String t, int k) {
+    // Write your code here
+    int q, common = 0;
+    int x = s.length();
+    int y = t.length();
+    int min = Math.min(s.length(),t.length());
+    for(int i =0; i< min; i++)
+    {
+        if(s.charAt(i) == t.charAt(i))
+        {
+            common++;
+        }
+        else{
+            break;
+        }
+    }
+    if(x + y <= k)
+    {
+        return "Yes";
+    }
+    else if(k-(x+y-2*common)>=0)
+       {
+           if((k-(x+y-2*common))%2 == 0)
+           {
+               return "Yes";
+           }
+           else
+           {
+               return "No";
+           }
+       }
+    else{
+        return "No";
+    }
+        
+    
+
+    }
+
+}

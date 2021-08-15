@@ -1,0 +1,19 @@
+    public static List<Integer> stones(int n, int a, int b) {
+    ArrayList<Integer> al = new ArrayList<>();
+    HashSet<Integer> hs = new HashSet<>();
+    for(int i =0; i< n; i++)
+    {
+        int temp = (n-1-i)*a + (i)*b;
+        if(!hs.contains(temp)) // agar hashset me value ha dont push value to arraylist
+                               // this condition to avoid duplicate
+        {
+            al.add(temp);
+        }
+        hs.add(temp);
+    }
+        Collections.sort(al);
+        return al;
+
+    }
+
+}

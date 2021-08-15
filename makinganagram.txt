@@ -1,0 +1,60 @@
+ public static int makingAnagrams(String s1, String s2) {
+    HashMap<Character, Integer> hmap = new HashMap<Character, Integer>();
+    int length = 0;
+    for(int i =0; i < s1.length(); i++)
+    {
+        char c = s1.charAt(i);
+        if(hmap.containsKey(c))
+        {
+            hmap.put(c, hmap.get(c) + 1);
+        }
+        else{
+            hmap.put(c,1);
+        }
+    }
+        
+    for(int i =0; i< s2.length(); i++)
+    {
+        char c = s2.charAt(i);
+        if(hmap.containsKey(c) && hmap.get(c) != 0)
+        {
+            hmap.put(c, hmap.get(c) - 1);
+            length += 2;
+        }
+    }
+        
+    return (s1.length() + s2.length() - length);
+
+    }
+
+}
+
+____________________________________________________________________________
+______________________________________________________________________________
+
+
+public static int makingAnagrams(String s1, String s2) {
+    // Write your code here
+    int minnofoDeletion = 0;
+    int[] charFreq = new int[26];
+        
+    for(int i =0; i < s1.length();i++)
+    {
+        int index = s1.charAt(i) - 'a';
+        charFreq[index]++;
+    }
+        
+    for(int i =0; i< s2.length();i++)
+    {
+        int index = s2.charAt(i) - 'a';
+        charFreq[index]--;
+    }
+    for(int i =0; i< 26; i++)
+    {
+        minnofoDeletion += Math.abs(charFreq[i]);
+    }
+    return minnofoDeletion;
+
+    }
+
+}

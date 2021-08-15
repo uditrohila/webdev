@@ -1,0 +1,30 @@
+ public static String organizingContainers(List<List<Integer>> container) {
+    int n = container.size();
+    int[] capacities = new int[n];
+    int[] amounts = new int[n];
+    
+    for(int i =0; i < n; i++)
+    {
+        for(int j =0; j < n; j++)
+        {
+            capacities[i] += container.get(i).get(j);
+            amounts[j] += container.get(i).get(j);
+        }
+    }
+    
+    Arrays.sort(capacities);
+    Arrays.sort(amounts);
+    
+    if(Arrays.equals(capacities,amounts))
+    {
+        return "Possible";
+    }
+    
+    else
+    {
+        return "Impossible";
+    }
+
+    }
+
+}

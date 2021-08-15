@@ -1,0 +1,22 @@
+  public static int toys(List<Integer> w) {
+    // intial ek container toh hoga hi
+    int container = 1;
+    // sort the weight array
+    Collections.sort(w);
+    // after sorting intial 0th element ko weightlimit + 4  let karliya 
+    // agar weight weightlimit exceed hota ha toh we have to take another container
+    int weightlimit = w.get(0); 
+    for(int i =0; i < w.size(); i++)
+    {   
+        if(w.get(i) > weightlimit + 4)
+        {
+            container = container + 1;
+            weightlimit = w.get(i);
+        }
+    }
+        
+    return container;
+
+    }
+
+}

@@ -1,0 +1,18 @@
+
+    public static String funnyString(String s) {
+    // Write your code here
+    int length = s.length();
+    for(int i = 1, j = length - 1; i < length - 1 && j >=1; i++,j--)
+    {
+        int a = Math.abs(s.charAt(i)- s.charAt(i - 1));
+        int b = Math.abs(s.charAt(j) - s.charAt(j - 1));
+         if(a != b)
+         {
+             return "Not Funny";
+         }
+    }
+    return "Funny";
+
+    }
+
+}

@@ -1,0 +1,33 @@
+public static String counterGame(long n) {
+    // Write your code here
+    int count = 0;
+    // count of reducind the power of 2 to 1
+    while(n > 0 && n % 2 == 0)
+    {
+        n = n / 2;
+        count++;
+    }
+        
+    // the count of reducing a number to the power of 2
+    while(n > 0)
+    {
+        if(n % 2 == 1)
+        {
+            count++;
+        }
+        
+        n = n/2;
+    }
+    // intially agar counter phele 1 ata ha toh richard wins else louise wins  
+    if(count % 2 == 1)
+    {
+        return "Richard";
+    }
+    else
+    {
+        return "Louise";
+    }
+
+    }
+
+}

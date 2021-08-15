@@ -1,0 +1,8 @@
+  public static long flippingBits(long n) {
+    // Write your code here
+    long value = (long) Math.pow(2,32) - 1; // range of unsinged int
+    return value^ n;
+
+    }
+
+}

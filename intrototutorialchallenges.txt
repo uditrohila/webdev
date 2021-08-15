@@ -1,0 +1,26 @@
+  public static int introTutorial(int V, List<Integer> arr) {
+    // Write your code here
+    int lo = 0;
+    int hi = arr.size() - 1;
+    int key = V;
+    while(lo <= hi)
+    {
+        int mid = (lo + hi) / 2;
+        if(arr.get(mid) == key)
+        {
+            return mid;
+        }
+        else if(arr.get(mid) < key)
+        {
+            lo = mid + 1;
+        }
+        else
+        {
+            hi = mid - 1;
+        }
+    }
+    return -1;
+
+    }
+
+}

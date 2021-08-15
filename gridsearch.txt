@@ -1,0 +1,64 @@
+import java.util.*;
+public class Solution{
+  
+  private static boolean compareMatrices(int[][] G, int x, int y, int[][] P, int r, int c)
+  {
+     for(int i =0; i< r; i++)
+     {
+        for(int j =0; j < c; j++)
+        {
+          if(G[x+i][y+j] != P[i][j])
+          {
+          return false;
+          }
+        }
+     }
+     return true;
+  }
+  
+  private static boolean checkMatrices(int[][] G, int R, int C, int[][] P, int r, int c)
+  {
+    for(int i =0; i <=R-r; i++)
+    {
+      for(int j =0; j <=C-c;j++)
+      {
+         if(compareMatrices(G,i,j,P,r,c))
+         {
+            return true;
+         }
+      }
+    }
+    return false;
+  }
+  public static void main(String[] args)
+  {
+    Scanner scn = new Scanner(System.in);
+    int t = scn.nextInt();
+    for(int i =0; i < t; i++)
+    {
+       int R = scn.nextInt();
+       int C = scn.nextInt();
+       int [][] G = new int[R][C];
+       for(int j =0; j < R; j++)
+       {
+         String s = scn.next();
+         for(int k =0;k< C; k++)
+         {
+           G[j][k] = s.charAt(k);
+         }
+       }
+       int r = scn.nextInt();
+       int c = scn.nextInt();
+       int[][] P = new int[r][c];
+       for(int j =0; j < r; j++)
+       {
+         String s = scn.next();
+         for(int k =0; k < c; k++)
+         {
+           P[j][k] = s.charAt(k);
+         }
+       }
+       System.out.println(checkMatrices(G,R,C,P,r,c)?"YES":"NO");
+    }
+  }
+}

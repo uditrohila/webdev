@@ -1,0 +1,55 @@
+ public static void decentNumber(int n) {
+    StringBuilder output = new StringBuilder("");
+    int fives = 0;
+    int threes = 0;
+        
+    while(n > 0)
+    {   // if n is divisible by 3
+        if(n % 3 == 0)
+        {
+            while(n > 0)
+            {
+                fives++;
+                n = n - 3;
+                
+            }
+        }
+        // if n is divisible by 5
+        else if(n % 5 == 0)
+        {
+            threes++;
+            n = n - 5;
+        }
+        // n is not divisible by 3 or 5
+        else
+        {
+            fives++;
+            n-=3;
+        }
+    }
+        // n is neg i.e no decent no exist
+        if(n < 0)
+        {
+            output.append("-1");
+        }
+        // build the decent number
+        else{
+            // build the decent number
+            for(int i =0; i < fives; i++)
+            {
+                output.append("555");
+            }
+            
+            for(int i = 0; i < threes; i++)
+            {
+                output.append("33333");
+            }
+            
+        }
+        
+        System.out.println(output);
+
+    }
+    
+
+}

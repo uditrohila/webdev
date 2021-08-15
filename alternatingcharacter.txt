@@ -1,0 +1,17 @@
+
+    public static int alternatingCharacters(String s) {
+    // Write your code here
+    int length = s.length();
+    int min_deletion = 0;
+    for(int i =1; i < length; i++)
+    {
+        if(s.charAt(i - 1) == s.charAt(i))
+        {
+            min_deletion++;
+        }
+    }
+        return min_deletion;
+
+    }
+
+}

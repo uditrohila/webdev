@@ -1,0 +1,23 @@
+// sort the given array
+        Arrays.sort(arr);
+        long mindiff = Long.MAX_VALUE;
+        
+        // find the mindiff in array
+        for(int i =1; i <n; i++)
+        {
+            long diff = Math.abs(arr[i] - arr[i - 1]);
+            if(diff < mindiff)
+            {
+                mindiff = diff;
+            }
+        }
+        // print the mindiff pairs in array
+        for(int i =1; i < n; i++)
+        {
+            if(mindiff == Math.abs(arr[i] - arr[i - 1]))
+            {
+                System.out.print(arr[i - 1] + " " + arr[i] + " ");
+            }
+        }
+    }
+}

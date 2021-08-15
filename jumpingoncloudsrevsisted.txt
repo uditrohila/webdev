@@ -1,0 +1,23 @@
+  // Complete the jumpingOnClouds function below.
+    static int jumpingOnClouds(int[] c, int k) {
+        int enerylevel = 100;
+        int i = 0;
+        while(true)
+        {
+            if(c[i] == 0)
+            {
+                enerylevel--;
+            }
+            else{
+                enerylevel = enerylevel - 1 - 2;
+            }
+            // modulo used for array rotation
+            i = (i + k) % c.length;
+            if(i == 0)
+            {
+                return enerylevel;
+            }
+        }
+
+
+    }

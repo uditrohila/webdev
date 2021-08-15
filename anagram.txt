@@ -1,0 +1,36 @@
+ public static int anagram(String s) {
+    int minNoofchanges = 0;
+    if((s.length() % 2) != 0)
+    {
+        return -1;
+    }
+    
+    int[] charFreq = new int[26];
+    
+    for(int i =0; i < s.length(); i++)
+    {
+        int index = s.charAt(i) - 'a';
+        if(i < s.length() / 2)
+        {
+             charFreq[index]++;
+        }
+        else
+        {
+            charFreq[index]--;
+        }
+    }
+    
+    for(int i =0; i < 26; i++)
+    {
+        if(charFreq[i] > 0)
+        {
+            minNoofchanges += charFreq[i];
+        }
+    }
+    
+    return minNoofchanges;
+    
+
+    }
+
+}

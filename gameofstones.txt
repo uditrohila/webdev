@@ -1,0 +1,14 @@
+ public static String gameOfStones(int n) {
+    // Write your code here
+    if(n%7 < 2)
+    {
+        return "Second";
+    }
+    else
+    {
+        return "First";
+    }
+
+    }
+
+}

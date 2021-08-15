@@ -1,0 +1,32 @@
+
+    public static int gemstones(List<String> arr) {
+    int gemstones = 0;
+    int[] a = new int[26]; // arry of integer to store ascii value how may time come
+    int length = arr.size();
+    // this loop for no of strings in arraylist
+    for(int i =0; i < length; i++)
+    {   String str = arr.get(i);  // extract 0 th index string
+        boolean[] visit = new boolean[26]; // make a boolean array to know each element occur only once
+        for(int j =0; j < str.length();j++)
+        {
+            int x = str.charAt(j) - 'a';  // find char ascii value
+            if(visit[x] != true)      // if visit[ascii] is not visited
+            {
+                a[x]++;               // increment in integer array
+                visit[x] = true;      // make visit equal to true
+            }
+        }
+    }
+ // calculate the gemstones   
+    for(int i =0; i<26; i++)
+    {
+        if(a[i] == length)
+        {
+            gemstones++;
+        }
+    }
+    return gemstones;
+
+    }
+
+}

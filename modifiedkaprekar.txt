@@ -1,0 +1,69 @@
+import java.util.*;
+import java.io.*;
+import java.math.*;
+
+public class Solution {
+    public static void main(String[] args)
+    {
+        Scanner scan = new Scanner(System.in);
+        long p = scan.nextLong();
+        long q = scan.nextLong();
+        boolean flag = true;;
+        for(long i = p; i<=q; i++)
+        {
+            if(isKaprekar(i))
+            {
+                System.out.print(i + " ");
+                flag = false;
+            }
+        }
+        if(flag)
+        {
+            System.out.println("INVALID RANGE");
+        }
+    }
+    
+    public static boolean isKaprekar(long a)
+    {
+        long sq = a * a;
+        long d = (a+"").length();
+        long div = (long)Math.pow(10,d);
+        long r = sq/div;
+        long l = sq%div;
+        if(a == (r + l))
+        {
+              return true;
+        }
+        return false;
+    }
+}
+
+
+________________________________________________________________________________________________
+_______________________________________________________________________________________________
+
+  public static void kaprekarNumbers(int p, int q) {
+    int base;
+    boolean flag = false;
+    for(int n = p; n <= q; n++)
+    {
+        int l = Integer.toString(n).length();
+        base =(int) Math.pow(10, l);
+        long pow = (long) Math.pow(n, 2);
+        long mod = pow % base;
+        long div = (pow - mod) / base;
+        if((div + mod) == n)
+        {
+            System.out.print(n + " ");
+            flag = true;
+        }
+    }
+        if(!flag)
+    {
+        System.out.print("INVALID RANGE");
+    }
+    
+
+    }
+
+}

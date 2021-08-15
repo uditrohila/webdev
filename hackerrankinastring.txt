@@ -1,0 +1,31 @@
+ public static String hackerrankInString(String s) {
+    // Write your code here
+    boolean found = false;
+    char[] hackerrank ={'h','a','c','k','e','r','r','a','n','k'};
+    int idx = 0;
+    
+    for(int i =0; i < hackerrank.length; i++)
+    {   found = false;
+        while(idx < s.length())
+        {
+            if(hackerrank[i] == s.charAt(idx))
+            {
+                found = true;
+                idx++;
+                break;
+            }
+            else
+            {
+                idx++;
+            }
+        }
+        if(!found)
+        {
+            return "NO";
+        }
+    }
+        return "YES";
+    
+    }
+
+}

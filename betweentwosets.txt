@@ -1,0 +1,61 @@
+ 
+    static int getGCD(int n1, int n2)
+    {
+        int div = n1;
+        int dvd = n2;
+        
+        while((dvd % div) != 0)
+        {
+            int rem = dvd % div;
+            dvd = div;
+            div = rem;
+        }
+        int gcd = div;
+        return gcd;
+    }
+    
+     static int getLCM(int n1, int n2)
+    {
+        int div = n1;
+        int dvd = n2;
+        
+        while((dvd % div) != 0)
+        {
+            int rem = dvd % div;
+            dvd = div;
+            div = rem;
+        }
+        int gcd = div;
+        int lcm = (n1*n2)/ gcd;
+        return lcm;
+    }
+
+    public static int getTotalX(List<Integer> a, List<Integer> b) {
+    int result = 0;
+    //get  lcm of all the element alist
+    int lcm = a.get(0);
+    for(Integer integer : a)
+    {
+        lcm = getLCM(lcm, integer);
+    }
+    // get gcd of all element of b list
+    int gcd = b.get(0);
+    for(Integer integer : b)
+    {
+        gcd = getGCD(gcd, integer);
+    }
+    // count multiple of lcm that divides the gcd
+    int multiple = 0;
+    while(multiple <= gcd)
+    {
+        multiple += lcm;
+        if(gcd % multiple == 0)
+        {
+            result++;
+        }
+    }
+    return result;
+
+    }
+
+}

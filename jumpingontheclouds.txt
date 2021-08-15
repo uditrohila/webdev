@@ -1,0 +1,20 @@
+public static int jumpingOnClouds(List<Integer> c) {
+    int jump = -1;
+    int i =0;
+    int length = c.size();
+     for(i =0; i < length;  )
+     {
+         if(i + 2 < length && c.get(i + 2) == 0)
+         {
+             i = i + 2;
+         }
+         else
+         {
+             i = i + 1;
+         }
+         jump++;
+     }
+        return jump;
+    }
+
+}

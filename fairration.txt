@@ -1,0 +1,25 @@
+
+    public static String fairRations(List<Integer> Bread) {
+    // Write your code here
+    int bread = 0;
+    for(int i =0; i< Bread.size() - 1; i++)
+    {
+        if(Bread.get(i) % 2 != 0)
+        {
+            Bread.set(i,(Bread.get(i)) + (1));
+            Bread.set(i + 1, (Bread.get(i + 1)) + (1));
+            bread = bread + 2;
+            
+        }
+    }
+    if(Bread.get(Bread.size() - 1)% 2 != 0)
+    {
+        return "NO";
+    }
+    else{
+        return Integer.toString(bread);
+    }
+
+    }
+
+}

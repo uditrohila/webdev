@@ -1,0 +1,149 @@
+    public static List<Integer> climbingLeaderboard(List<Integer> ranked, List<Integer> player) {
+    // Write your code here
+     ArrayList<Integer> leaderboard = (ArrayList<Integer>)ranked;
+     ArrayList<Integer> playerScores = (ArrayList<Integer>)player;
+     ArrayList<Integer> ranks = new ArrayList<>();
+     HashMap<Integer,Integer> ranking = new HashMap<>();
+        int rank = 1;
+        for(int i =0; i<leaderboard.size(); i++)
+        {
+            if(!ranking.containsKey(leaderboard.get(i)))
+            {
+                ranking.put(leaderboard.get(i), rank++);
+            }
+        }
+        int intial = leaderboard.size()-1;
+        for(int score: playerScores)
+        {
+            for(int i = intial; i>=0; i--)
+            {
+                if(score >= leaderboard.get(i))
+                {
+                    rank = ranking.get(leaderboard.get(i));
+                    intial = i -1;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            ranks.add(rank);
+        }
+        return ranks;
+
+    }
+
+}
+
+
+or __________________________________________________________________________________________________________
+_____________________________________________________________________________________________________________
+
+public static int[] climbingLeaderBoard(int[] scores, int[] alice){
+        int n = scores.length;
+        int m = alice.length;
+        
+        int res[] = new int[m];
+        int[] rank = new int[n];
+        
+        rank[0] = 1;
+        
+        
+        for(int i =1; i <n; i++)
+        {   // agar score equal ha toh rank same rahegi
+            if(scores[i] == scores[i - 1])
+            {
+                rank[i] = rank[i - 1];
+            }
+            // rank increse kardo prev rank ke hisab se
+            else
+            {
+                rank[i] = rank[i - 1] + 1;
+            }
+        }
+        
+        
+        for(int i =0; i <m; i++)
+        {
+            int aliceScore = alice[i];
+            if(aliceScore > scores[0])
+            {
+                res[i] = 1;
+            }
+            else if(aliceScore < scores[n - 1])
+            {
+                res[i] = rank[n - 1] + 1;
+            }
+            else{
+                int index = binarySearch(scores, aliceScore);
+                res[i] = rank[index];
+            }
+        }
+        return res;
+    
+}
+    
+    public static int binarySearch(int[] a, int key)
+    {
+        int lo = 0;
+        int hi = a.length - 1;
+        
+        while(lo <= hi)
+        {
+           int mid = lo + (hi - lo) / 2;
+            if(a[mid] ==  key)
+            {
+                return mid;
+            }
+            else if(a[mid] < key && key < a[mid - 1])
+            {
+                return mid;
+            }
+            else if(a[mid] > key && key >= a[mid + 1])
+            {
+                return mid + 1;
+            }
+            else if(a[mid] < key)
+            {
+                hi = mid - 1;
+            }
+            else if(a[mid] > key)
+            {
+                lo = mid + 1;
+            }
+                      
+                      
+        }
+        return -1;
+    }
+
+
+    
+    
+    
+    public static void main(String[] args)
+    {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int[] scores = new int[n];
+        
+        for(int i =0; i< n; i++)
+        {
+            scores[i] = scn.nextInt();
+        }
+        
+        int m = scn.nextInt();
+        int[] alice = new int[m];
+        
+        for(int i =0; i <m; i++)
+        {
+            alice[i] = scn.nextInt();
+        }
+        
+        int result[] = climbingLeaderBoard(scores, alice);
+        for(int val : result)
+        {
+            System.out.println(val);
+        }
+    }
+}

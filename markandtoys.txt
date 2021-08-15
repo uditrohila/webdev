@@ -1,0 +1,23 @@
+public static int maximumToys(List<Integer> prices, int k) {
+    int counttoys = 0;
+    int sum = 0;
+    Collections.sort(prices);
+    // iterate to each price of toy and count the toys he can buy acc to budget value or given amount
+    for(int i =0; i < prices.size(); i++)
+    {
+        sum = sum + prices.get(i);
+        if(sum <= k)
+        {
+            counttoys++;
+        }
+        else
+        {
+            break;
+        }
+    }
+        
+    return counttoys;
+
+    }
+
+}

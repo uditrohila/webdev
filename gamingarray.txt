@@ -1,0 +1,26 @@
+  public static String gamingArray(List<Integer> arr) {
+    int max = 0;
+    int count = 0;
+    
+    // traversing whole array for max elements in list
+    for(int i =0; i < arr.size(); i++)
+    {
+        if(arr.get(i) > max)
+        {
+            max = arr.get(i);
+            count++;
+        }
+    }
+        
+    if(count % 2 == 0)
+    {
+        return "ANDY";
+    }
+    else
+    {
+        return "BOB";
+    }
+
+    }
+
+}

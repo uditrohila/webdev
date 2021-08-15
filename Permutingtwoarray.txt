@@ -1,0 +1,24 @@
+  public static String twoArrays(int k, List<Integer> A, List<Integer> B) {
+    // Write your code here
+    int size = A.size();
+    //sort the list a
+    Collections.sort(A);
+    // sort the list b
+    Collections.sort(B);
+        
+    for(int i =0; i < size; i++)
+    {   // here we check the fail condition
+        if(A.get(i) + B.get(size - 1 - i) < k)  // we have take size-1-i to traverse list from last
+        {
+            return "NO";
+            
+        }
+    }
+        
+    return "YES";
+    
+    
+
+    }
+
+}

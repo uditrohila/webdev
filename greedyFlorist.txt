@@ -1,0 +1,27 @@
+  // Complete the getMinimumCost function below.
+    static int getMinimumCost(int k, int[] c) {
+    // sort the array
+    Arrays.sort(c);
+    int cost = 0;
+    int bought = 0;
+     // decresing order me access karege to minimize the price  
+    for(int i = c.length - 1; i >= 0; i--)
+    {
+        // we will buy flower with the original price when bought < k
+        if(bought < k)
+        {
+            cost = cost + c[i];
+        }
+        else
+        {
+            // every time we buy flowers > k the frequency will increase by 1
+           int frequency = bought / k;
+            cost += (frequency + 1) * c[i];
+        }
+        bought++;
+    }
+        
+    return cost;
+
+
+    }

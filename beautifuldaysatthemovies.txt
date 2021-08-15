@@ -1,0 +1,38 @@
+static int reversenumber(int n)
+     {
+         int m = n;
+         int nod =0;
+         int ans = 0;
+         // code for no of digit count
+         while(m != 0)
+         {
+             m = m / 10;
+             nod++;
+         }
+         // code for reverse of a number
+         int multipler =(int) Math.pow(10,nod - 1);
+         while(n != 0)
+         {
+            int rem = n % 10;
+            ans = ans + rem * multipler;
+             n = n / 10;
+             multipler = multipler / 10;
+         }
+         return ans;
+     }
+    public static int beautifulDays(int i, int j, int k) {
+    // Write your code here
+    int count = 0;
+     for(int start = i; start <= j; start++)
+     {
+         int reverse = reversenumber(start);
+         if((Math.abs(start - reverse)) % k == 0)
+         {
+             count++;
+         }
+     }
+    return count;
+
+    }
+
+}

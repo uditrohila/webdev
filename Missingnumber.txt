@@ -1,0 +1,45 @@
+public static List<Integer> missingNumbers(List<Integer> arr, List<Integer> brr) {
+    // Write your code here
+    TreeMap<Integer, Integer> map = new TreeMap<>();
+        
+    // add element of original list
+    for(int i : brr)
+    {
+        int freq = map.getOrDefault(i,0);
+        freq++;
+        
+        map.put(i, freq);
+    }
+        
+    // remove element of new list i.e. arr
+    for(int i : arr)
+    {
+        int freq = map.get(i);
+        freq--;
+        
+        if(freq == 0)
+        {
+            map.remove(i);
+        }
+        else
+        {
+            map.put(i, freq);
+        }
+        
+    }
+        
+    // create the result array
+    ArrayList<Integer> al = new ArrayList<>();
+    
+    for(Map.Entry<Integer, Integer> entry : map.entrySet())
+    {
+        al.add(entry.getKey());
+    }
+        
+    // return the list
+    return al;
+    
+
+    }
+
+}

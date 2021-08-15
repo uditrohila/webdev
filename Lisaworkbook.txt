@@ -1,0 +1,32 @@
+ public static int workbook(int n, int k, List<Integer> a) {
+    int marker = 1, pageno = 1, special = 0;
+    for(int i =1; i<=n; i++) // we iterate chapters
+    {
+        for(int j =1; j<=a.get(i-1); j++) // we iterate questions
+        {
+            if(j <= marker* k)
+            {
+                if(pageno == j)
+                {
+                    special++;
+                }
+            }
+               
+            else
+                {   pageno++;
+                    if(pageno == j)
+                    {
+                        special++;
+                    }
+                    marker++;
+                }
+            
+        }
+        pageno++;
+        marker=1;
+    }
+        return special;
+
+    }
+
+}

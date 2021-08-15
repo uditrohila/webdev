@@ -1,0 +1,13 @@
+
+    public static int lonelyinteger(List<Integer> a) {
+    // Write your code here
+    int result = 0;
+    for(int i =0; i < a.size(); i++)
+    {  // performing xor of all element to get the unique element
+        result = result ^ a.get(i);
+    }
+    return result;
+
+    }
+
+}

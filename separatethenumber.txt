@@ -1,0 +1,33 @@
+ public static void separateNumbers(String s) {
+    // Write your code here
+    String substring = "";
+    boolean isValid = false;
+    for(int i = 1; i <= s.length() / 2; i++)
+    {
+        substring = s.substring(0,i);
+        Long num = Long.parseLong(substring);
+        String validString = substring;
+        while(validString.length() < s.length())
+        {
+            validString += Long.toString(++num);
+        }
+        
+        if(s.equals(validString))
+        {
+            isValid = true;
+            break;
+        }
+    }
+        
+    if(isValid)
+    {
+        System.out.println("YES" + " " + substring);
+    }
+    else
+    {
+        System.out.println("NO");
+    }
+
+    }
+
+}

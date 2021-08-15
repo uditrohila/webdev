@@ -1,0 +1,28 @@
+import java.util.*;
+public class Solution
+{
+    public static void main(String[] args)
+    {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        
+        int[] calories = new int[n];
+        
+        for(int i =0; i <n ; i++)
+        {
+            calories[i] = scn.nextInt();
+        }
+        // sort te array in ascending
+        Arrays.sort(calories);
+        
+        long sum = 0;
+        int j =0;
+        // for descending use array in reverse order
+        for(int i = calories.length - 1; i>=0; i--)
+        {
+            sum = sum + calories[i] *(long) Math.pow(2,j++);
+        }
+        
+        System.out.println(sum);
+    }
+}

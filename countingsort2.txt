@@ -1,0 +1,44 @@
+public static void countingSort(int[] arr)
+   {
+       int min = Integer.MAX_VALUE;
+       int max = Integer.MIN_VALUE;
+       for(int i =0; i< arr.length; i++)
+       {
+           min = Math.min(min,arr[i]);
+           max = Math.max(max,arr[i]);
+       }
+       
+       int range = max - min + 1;
+       
+       // Auxillary array to store counts of each element
+       int[] count = new int[range];
+       
+       // Auxillary array to store the resultant sorted array
+       int[] output = new int[arr.length];
+       
+       // store count of each element
+       for(int j : arr)
+       {
+           count[j - min]++;
+       }
+       
+       // change count[i] so that it contain actual position of this character
+       for(int i =1; i < count.length; i++)
+       {
+           count[i] = count[i] + count[i - 1];
+       }
+       
+       // build the ouput array
+       for(int i = arr.length - 1; i >=0; i --)
+       {
+           output[count[arr[i]-min] - 1] = arr[i];
+           count[arr[i] - min]--;
+       }
+       
+       // display the finale output array
+       for(int k : output)
+       {
+           System.out.print(k + " ");
+       }
+   }
+    

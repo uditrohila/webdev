@@ -1,0 +1,29 @@
+ public static void bonAppetit(List<Integer> bill, int k, int b) {
+    // Write your code here
+        int actualbill = 0;
+        int overbill = b;
+        
+        for(int i =0; i< bill.size(); i++)
+        {
+            if(i == k)
+            {
+                // that index not included
+            }
+            
+            else{
+                actualbill = actualbill + bill.get(i);
+            }
+        }
+        
+        actualbill = actualbill / 2;
+        int diff = Math.abs(overbill - actualbill);
+        
+        if(actualbill == overbill)
+        {
+            System.out.println("Bon Appetit");
+        }
+        else
+        {
+            System.out.println(diff);
+        }
+        

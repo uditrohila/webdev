@@ -1,0 +1,107 @@
+public class Solution {
+    public static void main(String[] args)
+    {
+        Scanner scn = new Scanner(System.in);
+        int game = scn.nextInt();
+        for(int i =0; i< game; i++)
+        {
+            boolean underscore = false;
+            int n = scn.nextInt();
+            String b = scn.next();
+            if(b.length() == 1 && b.charAt(0) == '_')
+            {
+                System.out.println("YES");
+                continue;
+            }
+            else if(b.length() == 1 && b.charAt(0) != '_')
+            {
+                System.out.println("NO");
+                continue;
+            }
+            for(int j=0; j < b.length(); j++)
+            {
+                if(b.charAt(j) == '_')
+                {
+                    underscore = true;
+                    break;
+                }
+            }
+            
+            boolean happyBugs = true;
+            if(!underscore)
+            {
+                for(int j =0; j < b.length(); j++)
+                {
+                    if(j == 0 && b.charAt(j) == b.charAt(j + 1))
+                    {
+                        continue;
+                    }
+                    else if(j == 0 && b.charAt(j) != b.charAt(j + 1))
+                    {
+                        happyBugs = false;
+                        break;
+                    }
+                    if(j == n - 1 && b.charAt(j) == b.charAt(j - 1))
+                    {
+                        continue;
+                    }
+                    else if(j == n - 1 && b.charAt(j) != b.charAt(j - 1))
+                    {
+                        happyBugs = false;
+                        break;
+                    }
+                    if(b.charAt(j) == b.charAt(j - 1) || b.charAt(j) == b.charAt(j + 1))
+                    {
+                        continue;
+                    }
+                    happyBugs = false;
+                    break;
+                }
+            }
+            else
+            {
+                HashMap<Character, Integer> hm = new HashMap<>();
+                for(int j =0; j < b.length(); j++)
+                {
+                    char c = b.charAt(j);
+                    if(c == '_')
+                    {
+                        continue;
+                    }
+                    if(!hm.containsKey(c))
+                    {
+                        hm.put(c, 1);
+                    }
+                    else
+                    {
+                        int numBugs = hm.get(c);
+                        hm.put(c, ++numBugs);
+                    }
+                }
+                
+                ArrayList<Character> keys = new ArrayList<>(hm.keySet());
+                for(int k =0; k < keys.size(); k++)
+                {
+                    char key = keys.get(k);
+                    int  val = hm.get(key);
+                    
+                    if(val > 1)
+                    {
+                        continue;
+                    }
+                    happyBugs = false;
+                    break;
+                }
+                
+            }
+            if(happyBugs)
+            {
+                System.out.println("YES");
+            }
+            else
+            {
+                System.out.println("NO");
+            }
+        }
+    }
+}

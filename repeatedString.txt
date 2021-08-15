@@ -1,0 +1,27 @@
+ public static long repeatedString(String s, long n) {
+    long strLength = s.length();
+    // count no of a in the given string
+    int count = 0;
+    for(int i =0; i < strLength; i++)
+    {
+      if(s.charAt(i) == 'a')
+      {
+          count++;
+      }
+    }
+        
+    long repeatedTimes = n / strLength;
+    // find the length of string after repeation
+    long stringLeftLength = n - (strLength * repeatedTimes);
+    // count the remaining repetetions
+    int extra = 0;
+    for(int i = 0; i< stringLeftLength; i++)
+    {
+        if(s.charAt(i) == 'a')
+        {
+            extra++;
+        }
+    }
+    long totalCount = (repeatedTimes * count) + extra;
+    return totalCount;
+    }

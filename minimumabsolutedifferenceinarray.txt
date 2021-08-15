@@ -1,0 +1,28 @@
+   public static void main(String[] args)
+    {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        
+        int[] arr = new int[n];
+        
+        for(int i =0; i < n; i++)
+        {
+            arr[i] = scn.nextInt();
+        }
+        // sort the given array
+        Arrays.sort(arr);
+        
+        int mindiff = Integer.MAX_VALUE;
+        // find thr mindiff pair value
+        for(int i =1; i < n; i++)
+        {
+            int diff = Math.abs(arr[i] - arr[i - 1]);
+            if(diff < mindiff)
+            {
+                mindiff = diff;
+            }
+        }
+        
+        System.out.print(mindiff);
+    }
+}
